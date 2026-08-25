@@ -77,7 +77,7 @@ Gemini AI Personal Assistant uses a client-server architecture built around Goog
 - **AI Engine:** Google Gemini API
 - **Backend:** TypeScript + Vercel API Functions
 - **Streaming:** Server-Sent Events (SSE)
-- **Storage:** Browser `LocalStorage`
+- **Storage:** Browser `IndexedDB` || `LocalStorage`
 - **Deployment:** GitHub + Vercel
 
 ---
@@ -88,7 +88,7 @@ Gemini AI Personal Assistant uses a client-server architecture built around Goog
 - TypeScript
 - HTML5 / CSS3
 - Browser Web APIs
-- LocalStorage
+- IndexedDB || LocalStorage
 
 ### Backend
 - Node.js
@@ -176,6 +176,7 @@ AI responses are delivered using **Server-Sent Events (SSE)**. The frontend rece
 - **Environment Variables:** Credentials are securely managed outside source control.
   ```bash
   GEMINI_API_KEY=your_api_key_here
+  PORT=your_port_number
   ```
 - **API Key Protection:** The Gemini API key remains isolated on the server side to avoid frontend exposure.
 - **Content Sanitization:** HTML outputs are sanitized prior to UI injection.
@@ -185,7 +186,7 @@ AI responses are delivered using **Server-Sent Events (SSE)**. The frontend rece
 
 ## 💾 Local Persistence & Customization
 
-- **Browser Storage:** Conversations, active sessions, and preferences are stored client-side in `LocalStorage`. No external database required. *(Note: Clearing browser data resets stored chats).*
+- **Browser Storage:** Conversations, active sessions, and preferences are stored client-side in `IndexedDB`||`LocalStorage`. No external database required. *(Note: Clearing browser data resets stored chats).*
 - **Temperature Control:** Adjust creativity thresholds for precise vs. varied responses.
 - **Assistant Personas:** Dynamic system instructions allow tailored assistant behaviors for distinct tasks.
 
@@ -212,6 +213,7 @@ AI responses are delivered using **Server-Sent Events (SSE)**. The frontend rece
    Add your API key inside `.env`:
    ```bash
    GEMINI_API_KEY=your_gemini_api_key_here
+   PORT=your_port_number
    ```
 
 3. **Development Mode:**
